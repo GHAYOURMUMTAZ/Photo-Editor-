@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h1>Photo Editor</h1>
+            
+            <!-- File Operations -->
+            <div class="file-controls">
+                <input type="file" id="imageInput" accept="image/*" hidden>
+                <button onclick="document.getElementById('imageInput').click()" class="btn">Choose Image</button>
+                <button id="saveBtn" class="btn">Save</button>
+                <button id="resetBtn" class="btn">Reset</button>
+            </div>
+
+            <!-- Core Filters -->
+            <div class="filters">
+                <h3>Core Filters</h3>
+                <div class="filter"><label>Brightness</label><input type="range" id="brightness" min="0" max="200" value="100"><span id="brightnessValue">100%</span></div>
+                <div class="filter"><label>Saturation</label><input type="range" id="saturation" min="0" max="200" value="100"><span id="saturationValue">100%</span></div>
+                <div class="filter"><label>Inversion</label><input type="range" id="inversion" min="0" max="100" value="0"><span id="inversionValue">0%</span></div>
+                <div class="filter"><label>Grayscale</label><input type="range" id="grayscale" min="0" max="100" value="0"><span id="grayscaleValue">0%</span></div>
+            </div>
+
+            <!-- Advanced Filters -->
+            <div class="filters">
+                <h3>Advanced</h3>
+                <div class="filter"><label>Blur</label><input type="range" id="blur" min="0" max="10" value="0" step="0.1"><span id="blurValue">0px</span></div>
+                <div class="filter"><label>Sepia</label><input type="range" id="sepia" min="0" max="100" value="0"><span id="sepiaValue">0%</span></div>
+            </div>
+
+            <!-- Transform -->
+            <div class="transform">
+                <h3>Transform</h3>
+                <div class="transform-buttons">
+                    <button id="rotateLeft">↺</button>
+                    <button id="rotateRight">↻</button>
+                    <button id="flipHorizontal">↔</button>
+                    <button id="flipVertical">↕</button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="canvas-area">
+            <canvas id="imageCanvas"></canvas>
+            <div id="noImageMessage">Please choose an image to start editing</div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
